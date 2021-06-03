@@ -37,6 +37,12 @@ namespace property_app
                 new Property{Image="apt3.png", Address = "2112 Anthony Way, LA", Location="California", Price="$900/month", Bed="2 Bed", Bath="2 Bath", Space="1200 sqft", Details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."},
             };
         }
+
+        private async void PropertySelected(object sender, EventArgs e)
+        {
+            var property = (sender as View).BindingContext as Property;
+            await this.Navigation.PushAsync(new DetailsPage(property));
+        }
     }
 
     public class PropertyType

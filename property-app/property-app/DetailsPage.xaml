@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d" 
+             NavigationPage.HasNavigationBar="False"
              x:Class="property_app.DetailsPage">
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
@@ -75,6 +79,16 @@
                     <Label Text="{Binding Property.Details}" FontSize="15" FontFamily="ThemeFontRegular" TextColor="#515151"/>
                 </StackLayout>
             </ScrollView>
+        </pv:PancakeView>
+        <pv:PancakeView Grid.Row="2" HeightRequest="50" BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,5">
+            <pv:PancakeView.BackgroundGradientStops>
+                <pv:GradientStopCollection>
+                    <pv:GradientStop Color="#FF4157" Offset="0"/>
+                    <pv:GradientStop Color="#FF4359" Offset="0.5"/>
+                    <pv:GradientStop Color="#FF93C5" Offset="1"/>
+                </pv:GradientStopCollection>
+            </pv:PancakeView.BackgroundGradientStops>
+            <Label Text="Book Now" TextColor="White" FontSize="15" FontFamily="ThemeFontBold" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
         </pv:PancakeView>
     </Grid>
 </ContentPage>

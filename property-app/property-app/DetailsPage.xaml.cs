@@ -12,10 +12,14 @@ namespace property_app
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage()
+        public DetailsPage(Property property)
         {
             InitializeComponent();
+            this.Property = property;
+            this.BindingContext = this;
         }
+
+        public Property Property { get; set; }
 
         private void GoBack(object sender, EventArgs e)
         {
