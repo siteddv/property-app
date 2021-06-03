@@ -31,7 +31,7 @@
                 <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding PropertyTypeList}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" Shadow="True" BackgroundColor="White">
+                            <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" BackgroundColor="White">
                                 <Label x:Name="PropertyTypeName" Padding="20,5" Text="{Binding TypeName}" TextColor="#707070" FontSize="15" FontFamily="ThemeFontRegular"/>
                             </pv:PancakeView>
                         </DataTemplate>
@@ -43,7 +43,7 @@
             <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding PropertyList}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <pv:PancakeView HeightRequest="190" Margin="5,10" CornerRadius="5" Shadow="True" BackgroundColor="White">
+                        <pv:PancakeView HeightRequest="190" Margin="5,10" CornerRadius="5" BackgroundColor="White">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
