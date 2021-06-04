@@ -2,12 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              st:SharedTransitionNavigationPage.TransitionSelectedGroup="products"
-             mc:Ignorable="d"
-             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
              x:Class="property_app.MainPage">
 
     <Grid BackgroundColor="#F9F9F9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
@@ -50,14 +48,13 @@
                                                 <Setter Property="BackgroundGradientStops">
                                                     <Setter.Value>
                                                         <pv:GradientStopCollection>
-                                                            <pv:GradientStop Color="#FF4157" Offset="0"/>
-                                                            <pv:GradientStop Color="#FF4359" Offset="0.5"/>
-                                                            <pv:GradientStop Color="#FF93C5" Offset="1"/>
+                                                            <pv:GradientStop Color="#FF4157" Offset="0" />
+                                                            <pv:GradientStop Color="#FF4359" Offset="0.5" />
+                                                            <pv:GradientStop Color="#FE93C5" Offset="1" />
                                                         </pv:GradientStopCollection>
                                                     </Setter.Value>
                                                 </Setter>
-                                                <Setter Property="BackgroundGradientStartPoint" Value="0,0"/>
-                                                <Setter Property="BackgroundGradientEndPoint" Value="1,5"/>
+                                                
                                             </VisualState.Setters>
                                         </VisualState>
                                     </VisualStateGroup>
@@ -85,7 +82,7 @@
                                 <Image HeightRequest="115" Aspect="AspectFill" Source="{Binding Image}" st:Transition.Name="PropertyImage"/>
                                 <Image Source="bookmark.png" HorizontalOptions="End" Margin="12" HeightRequest="16" VerticalOptions="Start"/>
                                 <Grid VerticalOptions="End" Margin="15">
-                                    <pv:PancakeView CornerRadius="13" Padding="15,5" BackgroundColor="Black" Opacity="0.5"
+                                    <pv:PancakeView CornerRadius="13" Padding="15,5" BackgroundColor="Black" Opacity="0.5" 
                                                     HorizontalOptions="Start" VerticalOptions="Start">
                                         <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Start">
                                             <Image HeightRequest="12" WidthRequest="12" Source="location.png" VerticalOptions="Center" HorizontalOptions="Start"/>

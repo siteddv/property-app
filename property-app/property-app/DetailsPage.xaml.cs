@@ -25,6 +25,7 @@ namespace property_app
         {
             this.Navigation.PopAsync();
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
