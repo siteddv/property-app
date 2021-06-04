@@ -43,6 +43,31 @@ namespace property_app
             var property = (sender as View).BindingContext as Property;
             await this.Navigation.PushAsync(new DetailsPage(property));
         }
+
+        private void SelectType(object sender, EventArgs e)
+        {
+            View view = sender as View;
+            StackLayout parent = view as StackLayout;
+
+            foreach(View child in parent.Children)
+            {
+                VisualStateManager.GoToState(child, "Normal");
+                ChangeTextColor(child, "#707070");
+            }
+
+            VisualStateManager.GoToState(view, "Selected");
+            ChangeTextColor(view, "#FFFFFF");
+        }
+
+        private void ChangeTextColor(View child, string hexColor)
+        {
+            var textControl = child.FindByName<Label>("PropertyTypeName");
+
+            if(textControl != null)
+            {
+                textControl.TextColor = Color.FromHex(hexColor);
+            }
+        }
     }
 
     public class PropertyType

@@ -25,5 +25,11 @@ namespace property_app
         {
             this.Navigation.PopAsync();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DetailsView.TranslationY = 600;
+            DetailsView.TranslateTo(0, 0, 500, Easing.SinInOut);
+        }
     }
 }

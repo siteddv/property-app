@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             st:SharedTransitionNavigationPage.TransitionSelectedGroup="products"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
              x:Class="property_app.MainPage">
@@ -33,6 +35,33 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" BackgroundColor="White">
+                                <pv:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectType"/>
+                                </pv:PancakeView.GestureRecognizers>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundGradientStops" Value="{x:Null}"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundGradientStops">
+                                                    <Setter.Value>
+                                                        <pv:GradientStopCollection>
+                                                            <pv:GradientStop Color="#FF4157" Offset="0"/>
+                                                            <pv:GradientStop Color="#FF4359" Offset="0.5"/>
+                                                            <pv:GradientStop Color="#FF93C5" Offset="1"/>
+                                                        </pv:GradientStopCollection>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter Property="BackgroundGradientStartPoint" Value="0,0"/>
+                                                <Setter Property="BackgroundGradientEndPoint" Value="1,5"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
                                 <Label x:Name="PropertyTypeName" Padding="20,5" Text="{Binding TypeName}" TextColor="#707070" FontSize="15" FontFamily="ThemeFontRegular"/>
                             </pv:PancakeView>
                         </DataTemplate>
@@ -53,7 +82,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="PropertySelected"/>
                                 </Grid.GestureRecognizers>
-                                <Image HeightRequest="115" Aspect="AspectFill" Source="{Binding Image}"/>
+                                <Image HeightRequest="115" Aspect="AspectFill" Source="{Binding Image}" st:Transition.Name="PropertyImage"/>
                                 <Image Source="bookmark.png" HorizontalOptions="End" Margin="12" HeightRequest="16" VerticalOptions="Start"/>
                                 <Grid VerticalOptions="End" Margin="15">
                                     <pv:PancakeView CornerRadius="13" Padding="15,5" BackgroundColor="Black" Opacity="0.5"
